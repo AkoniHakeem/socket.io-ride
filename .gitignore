@@ -1,0 +1,8 @@
+# node modules
+node_modules
+
+# notes
+*.note.md
+
+# js to ignore
+index.ignore.js
