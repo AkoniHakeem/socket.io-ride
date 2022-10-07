@@ -30,4 +30,17 @@ io.on('connection', (socket) => {
             passengersSpace.emit('drivers-online', {drivers})
         }
     })
+    
+    passengerSpace.on('request-ride', ({ userName, destination, currentLocation }) => {
+        if (userName, destination, currentLocation) {
+            passengers.push({ id: passengers.length + 1, userName, destination, currentLocation, hasFoundDriver: false, hasStartedRiding: false })
+            
+            // broadcast to all drivers
+            driversSpace.emit('driver-needed',
+            // share the requesting passengers details
+            {
+                userName, destination, currentLocation,
+            })
+        }
+    })
 });
