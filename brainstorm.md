@@ -1,0 +1,19 @@
+- taxi request consideration
+    - should find drivers
+    - find driver with 10 km radius
+        - to achieve this
+            - open a channel for available drivers on the drivers' namespace
+                - collect and store drivers current location and timestamp or
+                - we could open an event to receive location updates from drivers who are online every 5 mins
+                - update the driver as available
+            - on request for driver 
+                - collect user's pick up location and destination
+                - check available driver within 10 km distance from the pick up location
+                - to calculate the distance limit we could use a geo-spatial tool/library like turfs.js
+    - find drivers with a specific vehicle preference
+        - to achieve this,
+            - collect drivers vehicle type on connection or
+            - access drivers vehicle type from datastore
+            - collect users vehicle preference on request or
+            - access users vehicle preference from datastore
+            - compare users vehicle preference with available drivers' vehicle*
